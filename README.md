@@ -3,11 +3,13 @@
 ## Работа с разными алгоритмами сжатия
 
 Создаем pool
+
 ``
 zpool create arh mirror sdb sdc
 ``
 
 Создаем файловую системы для каждого алгоритма сжатия
+
 ``
 zfs create arh/fs_gzip
 zfs create arh/fs_gzip_n
@@ -16,6 +18,7 @@ zfs create arh/fs_lz4
 ``
 
 Задаем для каждой файловой системы свой алгоритм сжатия
+
 ``
 zfs set compression=gzip arh/fs_gzip
 zfs set compression=gzip-9 arh/fs_gzip_n
@@ -58,6 +61,7 @@ tmpfs             101480       0    101480   0% /run/user/0
 ## Импорт zfs
 
 Проверяем скачаный pool
+
 ``
 # zpool import -d ${PWD}/zpoolexport/       
    pool: otus
@@ -72,11 +76,13 @@ tmpfs             101480       0    101480   0% /run/user/0
 ``
 
 Импортируем его
+
 ``
 # zpool import -d zpoolexport/ otus
 ``
 
 Смотрим сколько в нем памяти
+
 ``
 # zpool iostat otus
               capacity     operations     bandwidth 
@@ -86,6 +92,7 @@ otus        2.09M   478M      0      3  6.41K  18.2K
 ``
 
 Смотрим параметры
+
 ``
 # zfs get all otus
 NAME  PROPERTY              VALUE                  SOURCE
@@ -165,11 +172,13 @@ otus  special_small_blocks  0
 ## Восстановление zfs
 
 Скачиваем файл и восстанавливаем из файла снапшот
+
 ``
 # zfs receive otus/storage@taks2 < /vagrant/otus_task2.file
 ``
 
 Находим secret_message
+
 ``
 # cat /otus/storage/task1/file_mess/secret_message
 https://github.com/sindresorhus/awesome
