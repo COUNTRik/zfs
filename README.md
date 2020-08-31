@@ -164,7 +164,7 @@ otus  special_small_blocks  0
 
 ## Восстановление zfs
 
-Восстанавливаем из файла снапшот
+Скачиваем файл и восстанавливаем из файла снапшот
 ``
 # zfs receive otus/storage@taks2 < /vagrant/otus_task2.file
 ``
