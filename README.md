@@ -11,10 +11,10 @@ zpool create arh mirror sdb sdc
 Создаем файловую системы для каждого алгоритма сжатия
 
 ``
-zfs create arh/fs_gzip
-zfs create arh/fs_gzip_n
-zfs create arh/fs_zle   
-zfs create arh/fs_lz4
+  zfs create arh/fs_gzip
+  zfs create arh/fs_gzip_n
+  zfs create arh/fs_zle   
+  zfs create arh/fs_lz4
 ``
 
 Задаем для каждой файловой системы свой алгоритм сжатия
