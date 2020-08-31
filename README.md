@@ -4,9 +4,7 @@
 
 Создаем pool
 
-``
-zpool create arh mirror sdb sdc
-``
+	# zpool create arh mirror sdb sdc
 
 Создаем файловую системы для каждого алгоритма сжатия
 	
@@ -25,7 +23,7 @@ zpool create arh mirror sdb sdc
 Загрузив текст "Война и Мир" на каждую фс, мы можем увидеть какой алгоритм лучше сжимает
 
 
-	#df
+	# df
 	Filesystem     1K-blocks    Used Available Use% Mounted on
 	devtmpfs          499864       0    499864   0% /dev
 	tmpfs             507380       0    507380   0% /dev/shm
@@ -56,7 +54,6 @@ zpool create arh mirror sdb sdc
 
 Проверяем скачаный pool
 
-
 	# zpool import -d ${PWD}/zpoolexport/       
 	   pool: otus
 	     id: 6554193320433390805
@@ -71,9 +68,7 @@ zpool create arh mirror sdb sdc
 
 Импортируем его
 
-``
-# zpool import -d zpoolexport/ otus
-``
+	# zpool import -d zpoolexport/ otus
 
 Смотрим сколько в нем памяти
 
@@ -165,9 +160,7 @@ zpool create arh mirror sdb sdc
 
 Скачиваем файл и восстанавливаем из файла снапшот
 
-``
-# zfs receive otus/storage@taks2 < /vagrant/otus_task2.file
-``
+	# zfs receive otus/storage@taks2 < /vagrant/otus_task2.file
 
 Находим secret_message
 
